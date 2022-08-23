@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Vue.js </title>
+</head>
+<body>
+
+    <div id="elzreo-app">
+        <h1>Welcome To Vue.js </h1>
+        <p>
+            WELCOME {{name.toUpperCase()}} WE ARE HAPPY TO SEE YOU
+        </p>
+        <p> Your Age Is : {{age  +' Years' }} </p>
+        <p>Your First Skill is {{skills[0] }}</p>
+        <p>You Are {{isSubscribed ? 'Subscribed' :'Not Subscribed'}}</p>
+        <p>Your First Test Name Is : {{completedTests[0].testName}} </p>
+        <p>Your First Test Result Is : {{completedTests[0].testResult}} </p>
+        <p>{{sayMyName()}}</p>
+        <p>{{yourAgeInDays()}}</p>
+        <p>{{date}}</p>
+        <button @click="showNewDate"> Show New Date</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#elzreo-app',
+            data:{
+                name:'Duha',
+                age :23,
+                date: 'Today',
+                skills:['java' , 'c++' , 'python'],
+                isSubscribed:false,
+                completedTests:[
+                    {
+                        testName: 'First Test',
+                        testResult:'80%',
+                    },
+                    {
+                        testName: 'Second  Test',
+                        testResult:'70%',
+                    },
+                    {
+                        testName: 'Third Test',
+                        testResult:'90%',
+                    },
+                   
+                ]
+            },
+            methods:{
+                sayMyName:function(){
+                    return this.name;
+                },
+                yourAgeInDays:function(){
+                    return 'Your Age In Days Is : ' + this.age*365;
+                },
+                showNewDate:function(){
+                    this.date =Date();
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
