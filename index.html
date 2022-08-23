@@ -22,12 +22,20 @@
         <p>{{yourAgeInDays()}}</p>
         <p>{{date}}</p>
         <button @click="showNewDate"> Show New Date</button>
+
+        <!-- Add Directive :D -->
+        <p v-text="name"></p>
+        <p v-text="bool ? 'Your name is set ': 'Your Name is not set'"></p>
+        <p v-text="title"></p>
+        <p v-html="title"></p>
     </div>
     <script src="js/vue.js"></script>
     <script>
         var vm = new Vue({
             el: '#elzreo-app',
             data:{
+                bool: false,
+                title: '<div class="rank">NOOB</div>',
                 name:'Duha',
                 age :23,
                 date: 'Today',
