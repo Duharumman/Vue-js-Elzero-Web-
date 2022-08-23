@@ -56,19 +56,33 @@
         <p v-else-if="age >15 && age < 40">you are Not too old</p>
         <p v-else> You are still young  </p>
 
+        <!--  Add v-bind -->
+        <a v-bind:href="imageUrl">
+            <img v-bind:src="imageScr"  v-bind:alt="imageAltText">
+        </a>
+
+        <!-- Add v-on >> @click -->
+        <p>counter is : {{cnt}} </p>
+        <button @click="cnt++">Increase Counter</button>
     </div>
     <script src="js/vue.js"></script>
     <script>
         var vm = new Vue({
             el: '#elzreo-app',
             data:{
-                bool: false,
-                title: '<div class="rank">NOOB</div>',
-                name:'Duha',
                 age :23,
+                cnt:0,
+                name:'Duha',
                 date: 'Today',
-                skills:['java' , 'c++' , 'python'],
+                bool: false,
                 isSubscribed:false,
+                // 
+                imageScr:'imgs/logo.jpg',
+                imageAltText:'Alternate Text',
+                imageUrl:'https://vuejs.org/',
+                // 
+                skills:['java' , 'c++' , 'python'],
+                title: '<div class="rank">NOOB</div>',
                 completedTests:[
                     {
                         testName: 'First Test',
