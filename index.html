@@ -51,6 +51,10 @@
             </li>
         </ul>
 
+        <!-- Add v-if -->
+        <p v-if="age > 50"> You are too old </p>
+        <p v-else-if="age >15 && age < 40">you are Not too old</p>
+        <p v-else> You are still young  </p>
 
     </div>
     <script src="js/vue.js"></script>
