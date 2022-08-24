@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Basic Components</title>
+</head>
+<body>
+    <div id="app">
+        <app-count :source="source" :url="url"></app-count>
+        <app-articale v-for="post in posts" :title="post.title" :author="post.author"  >
+
+        </app-articale>
+        
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component('app-count',{
+            data: function(){
+                return{
+                    name:'Duha',
+                    count: 0
+
+                }
+            },
+            props:['source','url'],
+            template: '<p @click="count++"> Hello {{ name }} You clicked This Paragraph {{ count }} Times  and Source is {{source}}  and URL is {{url}} </p>'
+        })
+        Vue.component('app-articale',{
+            props:['author' , 'title'],
+            template:'<p> test Articale  title is {{title }} written by {{author}}  </p>'
+        })
+        var vm = new Vue({
+            el:' #app',
+            data:{
+                source:'Google',
+                url :'https://www.google.com',
+
+                posts:[
+                    {id: 1, author:'author-1', title:'Article Number one '},
+                    {id: 2, author:'author-2', title:'Article Number Two'},
+                    {id: 3, author:'author-3', title:'Article Number Three'},
+                    {id: 4, author:'author-4', title:'Article Number four '},
+                    {id: 5, author:'author-5', title:'Article Number Five'},
+                ]
+            },
+        }) 
+
+    </script>
+</body>
+</html>
