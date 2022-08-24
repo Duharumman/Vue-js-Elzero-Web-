@@ -34,7 +34,10 @@
             </li>
         </ul>
         
-        
+         <!-- - Computed Properties Part 3 -->
+         <label >Write Your Username </label>
+         <input type="text" v-model="username">
+         <p> {{validiteUsername}} </p>
     </div>
 
     <script src="js/vue.js"></script>
@@ -60,6 +63,7 @@
             el:' #app',
             data:{
                 age : 23,
+                username: '',
                 source:'Google',
                 url :'https://www.google.com',
 
@@ -100,7 +104,18 @@
                     return this.languages.filter(function(el){
                         return el.match(filtering);
                     })
-                }
+                },
+                 validiteUsername : function(){
+                    if(!this.username){
+                        return "Usernamr can't be Empty";
+                    }else if(this.username.length < 8){
+                        return " Usernaem is too short ";
+                    }else if(! isNaN(this.username)){
+                        return "Username can't be Numbers Only" ;
+                    }else{
+                        return `Hello ${this.username} Everything is Good`;
+                    }
+                 }
 
             },
 
