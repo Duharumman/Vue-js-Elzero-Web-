@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <div id="currency-converter">
+        <label > Egyption Pound</label>
+        <input type="text" v-model="eg">
+        <label >Suadi Riyal </label>
+        <input type="text" v-model="sar">
+    </div>
+
+    <script src="js/vue.js" ></script>
+    <script>
+        var vm = new Vue({
+            el: '#currency-converter',
+            data :{
+                eg:0,
+                sar:0,
+            },
+            methods:{
+
+            },
+            computed:{
+
+            },
+            watch:{
+                eg:function(v){
+                    this.sar =v/5;
+                },
+                sar:function(v){
+                    this.eg= v*5 ;
+                }
+            },
+        })
+    </script>
+</body>
+</html>
