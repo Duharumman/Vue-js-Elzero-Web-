@@ -64,6 +64,18 @@
         <!-- Add v-on >> @click -->
         <p>counter is : {{cnt}} </p>
         <button @click="cnt++">Increase Counter</button>
+
+        <!-- Add Directives - v-model-->
+        <form class="" action="index.html" method="post">
+            <input type="text" :value="source" placeholder="Using v-bind">
+            <input type="text" v-model="source" placeholder="Using v-Model">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox"> {{ checked }} </label>
+        </form>
+        <p>test {{source}} </p>
+
+        
+
     </div>
     <script src="js/vue.js"></script>
     <script>
@@ -72,6 +84,8 @@
             data:{
                 age :23,
                 cnt:0,
+                source:'Hey',
+                checked:false,
                 name:'Duha',
                 date: 'Today',
                 bool: false,
