@@ -17,7 +17,8 @@
 
     <script src="js/vue.js"></script>
     <script>
-        Vue.component('app-count',{
+        //  Local Components
+        var AppCount={
             data: function(){
                 return{
                     name:'Duha',
@@ -27,7 +28,8 @@
             },
             props:['source','url'],
             template: '<p @click="count++"> Hello {{ name }} You clicked This Paragraph {{ count }} Times  and Source is {{source}}  and URL is {{url}} </p>'
-        })
+        }
+    //    Global Components
         Vue.component('app-articale',{
             props:['author' , 'title'],
             template:'<p> test Articale  title is {{title }} written by {{author}}  </p>'
@@ -46,6 +48,10 @@
                     {id: 5, author:'author-5', title:'Article Number Five'},
                 ]
             },
+            // Local Components
+            components:{
+                'app-count':AppCount,
+            }
         }) 
 
     </script>
